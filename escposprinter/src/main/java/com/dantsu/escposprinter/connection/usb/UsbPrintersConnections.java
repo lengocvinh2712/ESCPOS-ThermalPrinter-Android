@@ -47,16 +47,15 @@ public class UsbPrintersConnections extends UsbConnections {
 
         Gson gson = new Gson();
         UsbPrinterDevice device = gson.fromJson(deviceStr, UsbPrinterDevice.class);
-        int index = 0;
         for (int idx = 0; idx < usbPrinters.length; idx++) {
             UsbDevice deviceSelect = usbPrinters[idx].getDevice();
             if (deviceSelect.getProductId() == device.getProduct_id() && deviceSelect.getVendorId() == device.getVendor_id()) {
-                index = idx;
+                return usbPrinter[idx];
                 break;
             }
         }
 
-        return usbPrinters[index];
+        return usbPrinters[0];
     }
 
     @Nullable
