@@ -54,7 +54,7 @@ public class UsbPrintersConnections extends UsbConnections {
             }
         }
 
-        return usbPrinters[0];
+        return null;
     }
 
     @Nullable
