@@ -50,7 +50,7 @@ public class UsbPrintersConnections extends UsbConnections {
         for (int idx = 0; idx < usbPrinters.length; idx++) {
             UsbDevice deviceSelect = usbPrinters[idx].getDevice();
             if (deviceSelect.getProductId() == device.getProduct_id() && deviceSelect.getVendorId() == device.getVendor_id()) {
-                return usbPrinter[idx];
+                return usbPrinters[idx];
             }
         }
 
