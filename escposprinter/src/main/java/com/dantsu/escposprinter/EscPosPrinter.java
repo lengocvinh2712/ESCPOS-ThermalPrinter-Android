@@ -310,6 +310,14 @@ public class EscPosPrinter extends EscPosPrinterSize {
         return this;
     }
 
+    public EscPosPrinter wakeUpPrinter() throws EscPosConnectionException {
+        if (this.printer != null) {
+            byte[] dummyBytes = new byte[]{0x0D, 0x0A};
+            this.printer.printImage(dummyBytes);
+        }
+        return this;
+    }
+    
     public EscPosPrinter printTscLabel(Bitmap bitmap, PrintLabelOption option) throws EscPosConnectionException {
         TscCommand tsc = new TscCommand();
         tsc.addSize(option.getPrintWidth(), option.getPrintHeight());
